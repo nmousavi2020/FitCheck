@@ -6,7 +6,15 @@ Overfitting • Underfitting • Generalization Analysis
 
 
 
-FitCheck is a Python project that demonstrates how model complexity and dataset size affect machine learning performance and generalization.
+FitCheck is a lightweight Python project that demonstrates how model complexity and dataset size affect machine learning performance and generalization.
+
+
+
+Overview
+
+
+
+FitCheck evaluates a Decision Tree classifier at different maximum depths and compares training accuracy, validation accuracy, and generalization gap.
 
 
 
@@ -18,17 +26,29 @@ Generalization gap calculation
 
 Overfitting and underfitting diagnostics
 
-Visual comparison of different fitting scenarios
+Visual comparison of three fitting scenarios
 
 CSV statistics and JSON summary reports
 
-Diagnostic Examples
+Diagnostic Results
+
+Comparison of All Cases
+
+
+
+The following figure compares underfitting, overfitting, and good-fit scenarios.
+
+
+
+!FitCheck Comparison
+
+
 
 1\. Underfitting
 
 
 
-Underfitting occurs when a model is too simple to learn the underlying patterns in the dataset. Both training and validation accuracy may be low.
+Underfitting occurs when a model is too simple to learn the underlying patterns. Training and validation accuracy may both be low.
 
 
 
@@ -44,7 +64,7 @@ Example: Dataset containing 10 samples.
 
 
 
-Overfitting occurs when a model learns the training data too closely and performs less effectively on unseen data. A large gap between training and validation accuracy can indicate overfitting.
+Overfitting occurs when a model performs well on training data but generalizes poorly to unseen data.
 
 
 
@@ -60,7 +80,7 @@ Example: Dataset containing 100 samples.
 
 
 
-A good fit occurs when a model achieves satisfactory training and validation performance with a relatively small generalization gap.
+A good fit generally combines satisfactory training and validation performance with a relatively small generalization gap.
 
 
 
@@ -84,7 +104,7 @@ For each depth, it calculates:
 
 
 
-Training Accuracy: Accuracy on the training dataset.
+Training Accuracy: Accuracy on training data.
 
 Validation Accuracy: Accuracy on held-out validation data.
 
@@ -92,7 +112,65 @@ Generalization Gap: Training accuracy minus validation accuracy.
 
 
 
-The diagnostic system uses configurable thresholds to flag potential fitting problems.
+Configurable thresholds flag potential fitting problems. These diagnoses are heuristic indicators, not definitive proof.
+
+
+
+Workflow
+
+Dataset
+
+&#x20;  ↓
+
+Train / Validation Split
+
+&#x20;  ↓
+
+Decision Tree — Varying Depths
+
+&#x20;  ↓
+
+Training and Validation Accuracy
+
+&#x20;  ↓
+
+Generalization Gap
+
+&#x20;  ↓
+
+Fit Diagnosis
+
+&#x20;  ↓
+
+CSV + JSON + Diagnostic Plots
+
+
+
+Project Structure
+
+FitCheck/
+
+├── fitcheck.py
+
+├── README.md
+
+├── requirements.txt
+
+├── LICENSE
+
+└── results/
+
+&#x20;   ├── compare\_cases.png
+
+&#x20;   ├── Goodfit\_n\_samples=1000.png
+
+&#x20;   ├── Overfitting\_n\_samples=100.png
+
+&#x20;   ├── Underfittingn\_samples=10.png
+
+&#x20;   ├── statistics.csv
+
+&#x20;   └── summary.json
 
 
 
@@ -100,11 +178,11 @@ Installation
 
 
 
-Requirements: Python 3.10 or later.
+Requires Python 3.10 or later.
 
 
 
-Install the dependencies:
+Install dependencies:
 
 
 
@@ -116,7 +194,7 @@ Usage
 
 
 
-Run FitCheck from the project directory:
+Run from the project directory:
 
 
 
@@ -126,7 +204,7 @@ python fitcheck.py
 
 
 
-The diagnostic reports and plots are saved in the results/ directory.
+Generated reports and diagnostic plots are saved in results/.
 
 
 
@@ -134,25 +212,27 @@ Output Files
 
 File	Description
 
-statistics.csv	Metrics for each tested tree depth
+compare\_cases.png	Visual comparison of the three scenarios
 
-summary.json	Diagnosis and selected model statistics
+statistics.csv	Metrics for every tested tree depth
+
+summary.json	Selected model and diagnostic summary
 
 diagnostics.png	Training, validation, and generalization plots
 
 
 
-The three example images above illustrate separate diagnostic scenarios.
+The three example images illustrate separate dataset scenarios. Their results depend on the data and model configuration used to generate them.
 
 
 
 Limitations
 
-A single train-validation split may produce unstable estimates.
+Small datasets can produce unreliable validation estimates.
 
-Very small datasets may not represent unseen data reliably.
+A single train-validation split may be unstable.
 
-Accuracy thresholds are heuristic and do not prove overfitting or underfitting.
+Threshold-based diagnoses are heuristic.
 
 Cross-validation and a separate test set are recommended for more reliable evaluation.
 
@@ -172,9 +252,5 @@ License
 
 
 
-Copyright (c) 2026 Naeim Mousavi. All rights reserved.
-
-
-
-No permission is granted to redistribute, modify, or use this project without the author's prior written permission.
+This project is licensed under the MIT License. See LICENSE.
 
