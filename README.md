@@ -30,6 +30,10 @@ Visual comparison of three fitting scenarios
 
 CSV statistics and JSON summary reports
 
+
+
+
+
 Diagnostic Results
 
 Comparison of All Cases
@@ -89,6 +93,8 @@ A good fit generally combines satisfactory training and validation performance w
 
 
 Example: Dataset containing 1,000 samples.
+
+
 
 
 
