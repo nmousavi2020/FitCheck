@@ -1,0 +1,19 @@
+{
+    "project": "FitCheck",
+    "model": "DecisionTreeClassifier",
+    "diagnosis": "Good Fit",
+    "explanation": "No strong warning from the selected heuristic thresholds.",
+    "best_max_depth": 4,
+    "train_accuracy": 0.8693,
+    "validation_accuracy": 0.856,
+    "generalization_gap": 0.0133,
+    "thresholds": {
+        "generalization_gap": 0.1,
+        "low_accuracy": 0.75
+    },
+    "dataset": {
+        "samples": 1000,
+        "training_samples": 750,
+        "validation_samples": 250
+    }
+}
