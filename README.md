@@ -141,8 +141,6 @@ results/
 
 The following figure compares underfitting, overfitting, and good-fit scenarios.
 
-![FitCheck Comparison](./results/compare_cases.png)
-
 ### 1. Underfitting
 
 Underfitting occurs when a model is too simple to learn the underlying patterns. Training and validation accuracy may both be low.
