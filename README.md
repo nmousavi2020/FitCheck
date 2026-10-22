@@ -225,17 +225,6 @@ Training Accuracy   → Satisfactory
 Validation Accuracy → Satisfactory
 Generalization Gap  → Relatively Small
 ```
-
-The figures are also included directly in this README.
-
-![FitCheck Model Comparison](./results/compare_cases.png)
-
-![FitCheck Underfitting](./results/Underfittingn_samples=10.png)
-
-![FitCheck Overfitting](./results/Overfitting_n_samples=100.png)
-
-![FitCheck Good Fit](./results/Goodfit_n_samples=1000.png)
-
 ---
 
 ## Limitations
