@@ -36,35 +36,27 @@ Comparison of All Cases
 
 
 
-The following figure compares underfitting, overfitting, and good-fit scenarios.
+<div align="left">
 
 
 
-!\[FitCheck Comparison](results/compare\_cases.png)
+\## 1. Underfitting
 
 
 
-1\. Underfitting
+Underfitting occurs when a model is too simple to learn the underlying patterns.
 
 
 
-Underfitting occurs when a model is too simple to learn the underlying patterns. Training and validation accuracy may both be low.
+!\[Underfitting Example](results/Underfittingn\_samples=10.png)
 
 
 
-!Underfitting Example (results/Underfittingn\_samples=10.png)
+\## 2. Overfitting
 
 
 
-Example: Dataset containing 10 samples.
-
-
-
-2\. Overfitting
-
-
-
-Overfitting occurs when a model performs well on training data but generalizes poorly to unseen data.
+Overfitting occurs when a model performs well on training data but generalizes poorly.
 
 
 
@@ -72,15 +64,11 @@ Overfitting occurs when a model performs well on training data but generalizes p
 
 
 
-Example: Dataset containing 100 samples.
+\## 3. Good Fit
 
 
 
-3\. Good Fit
-
-
-
-A good fit generally combines satisfactory training and validation performance with a relatively small generalization gap.
+A good fit combines satisfactory training and validation performance.
 
 
 
@@ -88,7 +76,7 @@ A good fit generally combines satisfactory training and validation performance w
 
 
 
-Example: Dataset containing 1,000 samples.
+</div>
 
 
 
