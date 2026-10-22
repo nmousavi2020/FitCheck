@@ -1,42 +1,280 @@
-FitCheck — ML Model Fit Diagnostics
+\# FitCheck — ML Model Fit Diagnostics
 
 
 
-Overfitting • Underfitting • Generalization Analysis
+A lightweight Python project for analyzing underfitting, overfitting, and generalization using Decision Tree classifiers.
 
 
 
-FitCheck is a lightweight Python project that demonstrates how model complexity and dataset size affect machine learning performance and generalization.
+\---
 
 
 
-Overview
+\## Author
 
 
 
-FitCheck evaluates a Decision Tree classifier at different maximum depths and compares training accuracy, validation accuracy, and generalization gap.
+\*\*Naeim Mousavi\*\*
 
 
 
-Features
-
-Training and validation accuracy analysis
-
-Generalization gap calculation
-
-Overfitting and underfitting diagnostics
-
-Visual comparison of three fitting scenarios
-
-CSV statistics and JSON summary reports
+GitHub: \[@nmousavi2020](https://github.com/nmousavi2020)
 
 
 
+Copyright (c) 2026 N. Mousavi.
 
 
-Diagnostic Results
 
-Comparison of All Cases
+\---
+
+
+
+\## Overview
+
+
+
+This project evaluates how model complexity and dataset size affect machine learning performance and generalization.
+
+
+
+The workflow is:
+
+
+
+```text
+
+Dataset
+
+&#x20;      ↓
+
+Train / Validation Split
+
+&#x20;      ↓
+
+Decision Tree — Varying Depths
+
+&#x20;      ↓
+
+Training Accuracy
+
+&#x20;      ↓
+
+Validation Accuracy
+
+&#x20;      ↓
+
+Generalization Gap
+
+&#x20;      ↓
+
+Fit Diagnosis
+
+&#x20;      ↓
+
+CSV + JSON + Diagnostic Plots
+
+```
+
+
+
+\---
+
+
+
+\## Features
+
+
+
+\- Training and validation accuracy analysis
+
+\- Generalization gap calculation
+
+\- Underfitting and overfitting diagnostics
+
+\- Visual comparison of three fitting scenarios
+
+\- CSV statistics and JSON summary reports
+
+
+
+\---
+
+
+
+\## Project Structure
+
+
+
+```text
+
+FitCheck/
+
+│
+
+├── results/
+
+│   ├── compare\_cases.png
+
+│   ├── Underfittingn\_samples=10.png
+
+│   ├── Overfitting\_n\_samples=100.png
+
+│   ├── Goodfit\_n\_samples=1000.png
+
+│   ├── diagnostics.png
+
+│   ├── statistics.csv
+
+│   └── summary.json
+
+│
+
+├── fitcheck.py
+
+├── requirements.txt
+
+├── README.md
+
+├── LICENSE
+
+└── .gitignore
+
+```
+
+
+
+\---
+
+
+
+\## Method
+
+
+
+\### 1. Dataset
+
+
+
+FitCheck evaluates model performance using datasets with different sample sizes.
+
+
+
+```text
+
+10 Samples      → Underfitting Example
+
+100 Samples     → Overfitting Example
+
+1000 Samples    → Good-Fit Example
+
+```
+
+
+
+These examples illustrate possible fitting scenarios. Actual results depend on the dataset, model configuration, and validation split.
+
+
+
+\### 2. Decision Tree Classifier
+
+
+
+A Decision Tree classifier is trained at different maximum depths to analyze how model complexity affects performance.
+
+
+
+\### 3. Training Accuracy
+
+
+
+Training accuracy measures how well the model predicts samples in the training dataset.
+
+
+
+\### 4. Validation Accuracy
+
+
+
+Validation accuracy measures how well the model predicts samples in the held-out validation dataset.
+
+
+
+\### 5. Generalization Gap
+
+
+
+The generalization gap is calculated as:
+
+
+
+```text
+
+Generalization Gap =
+
+Training Accuracy - Validation Accuracy
+
+```
+
+
+
+A large positive gap may indicate overfitting, while low training and validation accuracy may indicate underfitting.
+
+
+
+\### 6. Fit Diagnosis
+
+
+
+Configurable thresholds are used to flag potential fitting problems.
+
+
+
+These diagnoses are heuristic indicators, not definitive proof of underfitting or overfitting.
+
+
+
+\---
+
+
+
+\## Output
+
+
+
+After execution, the project generates diagnostic figures and reports:
+
+
+
+```text
+
+results/compare\_cases.png
+
+results/Underfittingn\_samples=10.png
+
+results/Overfitting\_n\_samples=100.png
+
+results/Goodfit\_n\_samples=1000.png
+
+results/diagnostics.png
+
+results/statistics.csv
+
+results/summary.json
+
+```
+
+
+
+\---
+
+
+
+\## Diagnostic Results
+
+
+
+\### Comparison of All Cases
 
 
 
@@ -44,11 +282,11 @@ The following figure compares underfitting, overfitting, and good-fit scenarios.
 
 
 
-!FitCheck Comparison
+!\[FitCheck Comparison](results/compare\_cases.png)
 
 
 
-1\. Underfitting
+\### 1. Underfitting
 
 
 
@@ -56,7 +294,7 @@ Underfitting occurs when a model is too simple to learn the underlying patterns.
 
 
 
-!Underfitting Example
+!\[Underfitting Example](results/Underfittingn\_samples=10.png)
 
 
 
@@ -64,7 +302,7 @@ Example: Dataset containing 10 samples.
 
 
 
-2\. Overfitting
+\### 2. Overfitting
 
 
 
@@ -72,7 +310,7 @@ Overfitting occurs when a model performs well on training data but generalizes p
 
 
 
-!Overfitting Example
+!\[Overfitting Example](results/Overfitting\_n\_samples=100.png)
 
 
 
@@ -80,7 +318,7 @@ Example: Dataset containing 100 samples.
 
 
 
-3\. Good Fit
+\### 3. Good Fit
 
 
 
@@ -88,7 +326,7 @@ A good fit generally combines satisfactory training and validation performance w
 
 
 
-!Good Fit Example
+!\[Good Fit Example](results/Goodfit\_n\_samples=1000.png)
 
 
 
@@ -96,181 +334,261 @@ Example: Dataset containing 1,000 samples.
 
 
 
+\---
 
 
-Methodology
 
+\## Statistics and Reports
 
 
-FitCheck uses a Decision Tree classifier with varying maximum tree depths.
 
+FitCheck generates structured outputs for further analysis.
 
 
-For each depth, it calculates:
 
+```text
 
+results/
 
-Training Accuracy: Accuracy on the training dataset.
+├── statistics.csv
 
-Validation Accuracy: Accuracy on the held-out validation dataset.
+└── summary.json
 
-Generalization Gap: Training accuracy minus validation accuracy.
+```
 
 
 
-Configurable thresholds flag potential fitting problems. These diagnoses are heuristic indicators, not definitive proof of overfitting or underfitting.
+\- \*\*statistics.csv:\*\* Contains metrics for every tested tree depth.
 
+\- \*\*summary.json:\*\* Contains the selected model and diagnostic summary.
 
 
-Workflow
 
-Dataset
+\---
 
-&#x20;  |
 
-&#x20;  v
 
-Train / Validation Split
+\## Installation
 
-&#x20;  |
 
-&#x20;  v
 
-Decision Tree — Varying Depths
+Requires Python 3.10 or later.
 
-&#x20;  |
 
-&#x20;  v
 
-Training and Validation Accuracy
+Install the required dependencies:
 
-&#x20;  |
 
-&#x20;  v
 
-Generalization Gap
-
-&#x20;  |
-
-&#x20;  v
-
-Fit Diagnosis
-
-&#x20;  |
-
-&#x20;  v
-
-CSV + JSON + Diagnostic Plots
-
-
-
-Project Structure
-
-FitCheck/
-
-├── fitcheck.py
-
-├── README.md
-
-├── requirements.txt
-
-├── LICENSE
-
-└── results/
-
-&#x20;   ├── compare\_cases.png
-
-&#x20;   ├── Goodfit\_n\_samples=1000.png
-
-&#x20;   ├── Overfitting\_n\_samples=100.png
-
-&#x20;   ├── Underfittingn\_samples=10.png
-
-&#x20;   ├── statistics.csv
-
-&#x20;   ├── summary.json
-
-&#x20;   └── diagnostics.png
-
-
-
-Installation
-
-
-
-Requirements: Python 3.10 or later.
-
-
-
-Install the dependencies:
-
-
+```bash
 
 pip install -r requirements.txt
 
-
-
-Usage
+```
 
 
 
-Run the project from the root directory:
+\### requirements.txt
 
 
+
+The dependencies should match those used by your project. A typical configuration is:
+
+
+
+```text
+
+numpy
+
+pandas
+
+matplotlib
+
+scikit-learn
+
+```
+
+
+
+\---
+
+
+
+\## Run
+
+
+
+From the project root:
+
+
+
+```bash
 
 python fitcheck.py
 
+```
 
 
 
-
-Generated reports and diagnostic plots are saved in the results/ directory.
-
-
-
-Output Files
-
-File	Description
-
-compare\_cases.png	Visual comparison of the three fitting scenarios
-
-statistics.csv	Metrics for every tested tree depth
-
-summary.json	Selected model and diagnostic summary
-
-diagnostics.png	Training, validation, and generalization plots
+The program evaluates the configured Decision Tree models and saves generated reports and diagnostic plots in the results/ directory.
 
 
 
-The three example images illustrate separate dataset scenarios. Their results depend on the data, train-validation split, and model configuration used to generate them.
+\---
 
 
 
-Limitations
-
-Small datasets can produce unreliable validation estimates.
-
-A single train-validation split may be unstable.
-
-Threshold-based diagnoses are heuristic and may not identify every fitting problem.
-
-Cross-validation and a separate test set are recommended for more reliable evaluation.
-
-Author
+\## Visualization
 
 
 
-Naeim Mousavi
+The diagnostic figures illustrate three possible fitting scenarios.
 
 
 
-GitHub: @nmousavi2020
+```text
+
+Underfitting
+
+Training Accuracy   → Low
+
+Validation Accuracy → Low
 
 
 
-License
+Overfitting
+
+Training Accuracy   → High
+
+Validation Accuracy → Lower
+
+Generalization Gap  → Large
 
 
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+Good Fit
+
+Training Accuracy   → Satisfactory
+
+Validation Accuracy → Satisfactory
+
+Generalization Gap  → Relatively Small
+
+```
+
+
+
+The figures are embedded directly in this README for display on GitHub.
+
+
+
+!\[FitCheck Model Comparison](results/compare\_cases.png)
+
+
+
+!\[FitCheck Underfitting](results/Underfittingn\_samples=10.png)
+
+
+
+!\[FitCheck Overfitting](results/Overfitting\_n\_samples=100.png)
+
+
+
+!\[FitCheck Good Fit](results/Goodfit\_n\_samples=1000.png)
+
+
+
+\---
+
+
+
+\## Limitations
+
+
+
+\- Small datasets can produce unreliable validation estimates.
+
+\- A single train-validation split may be unstable.
+
+\- Decision Tree performance depends on model configuration and dataset characteristics.
+
+\- Threshold-based diagnoses are heuristic.
+
+\- A small generalization gap does not guarantee good predictive performance.
+
+\- Cross-validation and a separate test set are recommended for more reliable evaluation.
+
+
+
+\---
+
+
+
+\## Next Step
+
+
+
+The next development step is to improve the evaluation workflow:
+
+
+
+```text
+
+Dataset
+
+&#x20;      ↓
+
+Data Validation
+
+&#x20;      ↓
+
+Feature Engineering
+
+&#x20;      ↓
+
+Train / Validation Split
+
+&#x20;      ↓
+
+Model Training
+
+&#x20;      ↓
+
+Cross-Validation
+
+&#x20;      ↓
+
+Model Evaluation
+
+&#x20;      ↓
+
+Diagnostic Reports
+
+```
+
+
+
+This will make FitCheck more robust and support the evaluation of additional machine learning models.
+
+
+
+\---
+
+
+
+\## License
+
+
+
+This project is licensed under the MIT License.
+
+
+
+See the \[LICENSE](LICENSE) file for details.
+
+
+
+\---
+
+
 
